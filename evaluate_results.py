@@ -19,6 +19,7 @@ def load_json_objects(filename):
     return obj
 
 
+
 def examine_data(data):
 
         # this is how every object in the data looks like,
@@ -72,7 +73,6 @@ def get_accuracy_of_feature(list_of_last_4_iters, feature):
 
 
 
-
 def get_avg_amount_of_features(list_of_last_4_iters):
     # this method computes the average remaining features in the last four iterations
     # it was used for creating the tables 3 and 4
@@ -96,6 +96,7 @@ def eval_last_4_iters_accuracy(list_of_last_4_iters):
         print(len(accuracy_list))
         avg = sum(accuracy_list) / len(accuracy_list)
         print("Average: {}".format(avg))
+
 
 
 def eval_last_4_iters_frequency(list_of_last_4_iters):
@@ -144,7 +145,6 @@ if __name__ == "__main__":
     data = load_json_objects("results_automatic_4_klassen")
     
     examine_data(data)
-    #get_avg_removal_iteration(data)
     
 
 

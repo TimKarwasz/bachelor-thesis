@@ -8,8 +8,7 @@ font = {'size'   : 18}
 
 plt.rc('font', **font)
 
-# methode schreiben in der alle VArianzwerte angesachaut werden und dann ein Signifikanzmaß angewendet wird um die signifikant kleinen Werte rauszunhemen (um die ANzahl der Features die weggenommen werden zu automatisoeren)
-# dann diese methode mit der varianz metohde vergleichen, bie beiden 50 durchläufe boxplots erstellen
+
 
 def automation_remove_below_mean(model):
     # this method selects all variances below the mean and returns them so they can be removed
@@ -27,6 +26,8 @@ def automation_remove_below_mean(model):
 
 
     return varianz_values_below_mean    
+
+
 
 def return_n_smallest_variances(model, num_to_eliminate):
     # this method returns the n smallest varainz values
@@ -67,6 +68,8 @@ def return_n_smallest_variances(model, num_to_eliminate):
     plt.show()
     """
     return sorted_varianz_values[:num_to_eliminate] # returns the n smallest varianz values with the corresponding index
+
+
 
 def find_varianz_values(model):
     # this method computes the variance values and selects the maximum value for each neuron in the hidden layer (see Kapitel 4)
@@ -146,6 +149,8 @@ def save_results(filename, data_dict):
     # this method saves the results from each run into a txt file for later use
     with open("results\\" + filename + ".txt", "a", encoding="utf-8") as file:
         json.dump(data_dict, file)
+
+
 
 def load_json_objects(filename):
     with open("results\\" + filename + ".txt", "r", encoding="utf-8") as file:

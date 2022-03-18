@@ -158,22 +158,21 @@ if __name__ == "__main__":
     learning_rate = 0.001 # standard value for adam
     hidden_layer_size = 64
     epochs = 250
-    num_classes = 6 # this has to be 4 if  the boolean extended is set to False, and 6 if extended is set to True 
+    num_classes = 4 # this has to be 4 if  the boolean extended is set to False, and 6 if extended is set to True 
 
     # prepare data  
-    #x,y = load_and_encode("Path\to\SARSrCoV_spike_aln_m.fasta", extended = True) # True means 6 classes, False means 4
-    x,y = load_and_encode("C:\\Users\\Tim\\Desktop\\BA\\Wieseke_daten\\datasets\\SarsCov\\SARSrCoV_spike_aln_m.fasta", extended = True) # True means 6 classes, False means 4
+    x,y = load_and_encode("Path\to\SARSrCoV_spike_aln_m.fasta", extended = True) # True means 6 classes, False means 4
 
     list_of_all_runs = []
     ## used for executing the versuch 50 times
     for i in range(1): # 
         #False in the method() call means iterative mode here, True means automatic mode
-        #data_of_single_run = method(x, y , 163, 8, False ) # this was used for Versuch 1
-        data_of_single_run = method(x, y , 1, 0, True ) #  this was used for Versuch 2 (the second and third parameter dont matter when True is used)
+        #data_of_single_run = method(x, y , 163, 8, False ) # this was used for Versuch 1 (163 iterations and 8 features removed per iteration (last 4 iterations excluded))
+        data_of_single_run = method(x, y , 2, 1, True ) #  this was used for Versuch 2 (the second and third parameter dont matter when True (automatic mode) is used)
         list_of_all_runs.append(data_of_single_run) 
             
     # this saves the results
-    #save_results("results", list_of_all_runs) # saves the results in a results/results.txt
+    #save_results("results", list_of_all_runs) # saves the results in results/results.txt
 
 
 

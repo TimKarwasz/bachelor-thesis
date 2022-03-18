@@ -26,6 +26,7 @@ def load_fasta(path_to_fasta, extended):
     return x,y
 
 
+
 def one_hot_encode(sequences):
     onehot_encoded_seqs = []
     alphabet = 'MFHLVDQTIAERKSWNYPGCX-'
@@ -43,6 +44,7 @@ def one_hot_encode(sequences):
         onehot_encoded_seqs.append(onehot_encoded)
 
     return np.asarray(onehot_encoded_seqs)
+
 
 
 def one_hot_decode(encoded_sequences):
@@ -69,25 +71,7 @@ def load_and_encode(path, extended):
 
     return one_hot_seqs,np.asarray(labels)
 
-"""
-def add_noise(x, y, noise_len, seq_set ):
-    noise = []
-    # generate noise sequences with the length and chars of actual data
-    for _ in range(noise_len):
-        noise.append(''.join(random.choice(seq_set) for _ in range(x.shape[1])))
 
-        # append zeros for noise data
-        y = np.append(y,0)
-
-    # one hot encode the noise
-    z = one_hot_encode(noise)
-
-    # add noise to data
-    x = np.concatenate((x,z))
-
-
-    return x,y
-"""
 
 def assign_classes(seqs_ids):
     # 0 -> Human
@@ -112,6 +96,8 @@ def assign_classes(seqs_ids):
 
     #get_class_data(classes)
     return classes
+
+
 
 def assign_classes_extended(seqs_ids):
     # 0 -> Human
@@ -142,6 +128,8 @@ def assign_classes_extended(seqs_ids):
 
     #get_class_data(classes)
     return classes
+
+
 
 def get_class_data(class_distribution):
     distribution_dict = {}
